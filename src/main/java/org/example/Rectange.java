@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Rectange extends Shape {
 
     private double length;
@@ -44,4 +46,16 @@ public class Rectange extends Shape {
                 '}';
     }
 
-   }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectange rectange = (Rectange) o;
+        return Double.compare(length, rectange.length) == 0 && Double.compare(height, rectange.height) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(length, height);
+    }
+}
